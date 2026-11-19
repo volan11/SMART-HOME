@@ -1,17 +1,16 @@
-﻿# РџСЂРѕС‚РѕРєРѕР» С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅС‹С… РёСЃРїС‹С‚Р°РЅРёР№ (19.11.2026)
+# Протокол функциональных испытаний (19.11.2026)
 
-| в„– | РџСЂРѕРІРµСЂРєР° | РСЃС…РѕРґРЅС‹Рµ РґР°РЅРЅС‹Рµ | РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚ | Р¤Р°РєС‚РёС‡РµСЃРєРёР№ СЂРµР·СѓР»СЊС‚Р°С‚ | РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ |
+| № | Проверка | Исходные данные | Ожидаемый результат | Фактический результат | Подтверждение |
 |---|----------|-----------------|---------------------|-----------------------|---------------|
-| 1 | РџРѕСЃС‚СѓРїР»РµРЅРёРµ TEMP-01 Рё HUM-01 | РїРѕС‚РѕРє Node-RED Р°РєС‚РёРІРµРЅ | РЅРѕРІС‹Рµ РїРѕРєР°Р·Р°РЅРёСЏ РєР°Р¶РґС‹Рµ 5 СЃ | РёРЅС‚РµСЂРІР°Р» 5 СЃ, РІ Р‘Р” 748+ СЃС‚СЂРѕРє | `practice4/receiver-log.txt`, `practice6/inspect-output.txt` |
-| 2 | FAN РїСЂРё С‚РµРјРїРµСЂР°С‚СѓСЂРµ РІС‹С€Рµ РїРѕСЂРѕРіР° | TEMP = 31 | FAN-01 ON | `state=ON` | `practice5/fan-test.log` |
-| 3 | FAN РЅРёР¶Рµ РїРѕСЂРѕРіР° | TEMP = 25 | FAN-01 OFF | `state=OFF` | `practice5/fan-test.log` |
-| 4 | FAN РЅР° РіСЂР°РЅРёС†Рµ | TEMP = 30 | FAN-01 OFF | `state=OFF` | `practice5/fan-test.log` |
-| 5 | Р—Р°РїРёСЃСЊ РІ SQLite | 3 СЃРѕРѕР±С‰РµРЅРёСЏ РѕС‚РїСЂР°РІР»РµРЅС‹ | РЅРѕРІС‹Рµ СЃС‚СЂРѕРєРё РІ С‚Р°Р±Р»РёС†Р°С… | rows СЂР°СЃС‚СѓС‚: measurements 748, actuator_events 369 | `practice6/sql-check.txt` |
-| 6 | РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РІ Grafana | РїР°РЅРµР»СЊ РѕС‚РєСЂС‹С‚Р° | Р·РЅР°С‡РµРЅРёСЏ Рё РіСЂР°С„РёРєРё РѕР±РЅРѕРІР»СЏСЋС‚СЃСЏ | TEMP 32.1 В°C, HUM 62.8 %, FAN, СЂРµР¶РёРј AUTO | `practice7/screens/w7_grafana_dashboard.png` |
-| 7 | Р¦РµР»СЊ Prometheus | job office-controller | UP | UP | `practice7/screens/w7_prom_targets.png` |
-| 8 | РћРїРѕРІРµС‰РµРЅРёРµ TEMP-01 | РѕСЃС‚Р°РЅРѕРІР»РµРЅР° РѕС‚РїСЂР°РІРєР° TEMP | Alerting | firing, РІРѕР·СЂР°СЃС‚ 56 СЃ | `practice7/screens/w7_alert_temp.png` |
-| 9 | РћРїРѕРІРµС‰РµРЅРёРµ HUM-01 | РѕСЃС‚Р°РЅРѕРІР»РµРЅР° РѕС‚РїСЂР°РІРєР° HUM | Alerting | firing, РІРѕР·СЂР°СЃС‚ 54 СЃ | `practice7/screens/w7_alert_hum.png` |
-| 10 | РћРїРѕРІРµС‰РµРЅРёРµ CTRL-01 | РѕСЃС‚Р°РЅРѕРІР»РµРЅ РїСЂРёС‘РјРЅРёРє | Alerting, РґР°С‚С‡РёРєРё вЂ” No data | firing, up=0 | `practice7/screens/w7_alert_ctrl.png` |
-| 11 | Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ | РѕС‚РїСЂР°РІРєР° Рё РїСЂРёС‘РјРЅРёРє Р·Р°РїСѓС‰РµРЅС‹ | Normal | РїСЂР°РІРёР»Р° РІРµСЂРЅСѓР»РёСЃСЊ РІ Normal | СЃРѕСЃС‚РѕСЏРЅРёРµ РїСЂР°РІРёР» РІ Grafana |
-| 12 | Р”РѕСЃС‚Р°РІРєР° РїРёСЃСЊРјР° | SMTP РЇРЅРґРµРєСЃР° | РїРёСЃСЊРјРѕ РІ СЏС‰РёРєРµ | РѕС€РёР±РєР° 535, РїРёСЃСЊРјРѕ РЅРµ РґРѕСЃС‚Р°РІР»РµРЅРѕ | Р¶СѓСЂРЅР°Р» Grafana, РѕС‚С‡С‘С‚ |
-
+| 1 | Поступление TEMP-01 и HUM-01 | поток Node-RED активен | новые показания каждые 5 с | интервал 5 с, в БД более 1100 строк | `practice4/receiver-log.txt`, `practice6/inspect-output.txt` |
+| 2 | FAN при температуре выше порога | TEMP = 31 | FAN-01 ON | `state=ON` | `practice5/fan-test.log` |
+| 3 | FAN ниже порога | TEMP = 25 | FAN-01 OFF | `state=OFF` | `practice5/fan-test.log` |
+| 4 | FAN на границе | TEMP = 30 | FAN-01 OFF | `state=OFF` | `practice5/fan-test.log` |
+| 5 | Запись в SQLite | 3 сообщения отправлены | новые строки в таблицах | rows растут: measurements 1109, actuator_events 550 | `practice6/sql-check.txt` |
+| 6 | Отображение в Grafana | панель открыта | значения и графики обновляются | TEMP 32.1 °C, HUM 62.8 %, FAN, режим AUTO | `practice7/screens/w7_grafana_dashboard.png` |
+| 7 | Цель Prometheus | job office-controller | UP | UP | `practice7/screens/w7_prom_targets.png` |
+| 8 | Оповещение TEMP-01 | остановлена отправка TEMP | Alerting + письмо | firing, возраст 56 с; письмо [FIRING] 14:52 | `practice7/screens/w7_alert_temp.png`, `practice7/mail-evidence.txt` |
+| 9 | Оповещение HUM-01 | остановлена отправка HUM | Alerting + письмо | firing, возраст 54 с; письмо [FIRING] 14:54 | `practice7/screens/w7_alert_hum.png`, `practice7/mail-evidence.txt` |
+| 10 | Оповещение CTRL-01 | остановлен приёмник | Alerting, датчики — No data | firing, up=0 | `practice7/screens/w7_alert_ctrl.png` |
+| 11 | Восстановление | отправка и приёмник запущены | Normal + письмо [RESOLVED] | правила вернулись в Normal; письма [RESOLVED] 14:53 и 14:56 | `practice7/mail-evidence.txt` |
+| 12 | Доставка письма | SMTP Яндекса | письмо в ящике | получены [FIRING] и [RESOLVED] по TEMP-01 (14:52, 14:53) и HUM-01 (14:54, 14:56) | `practice7/mail-evidence.txt` |

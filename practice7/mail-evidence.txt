@@ -1,0 +1,9 @@
+﻿Подтверждение доставки оповещений Grafana на почту (получено из почтового ящика по IMAP)
+
+Thu, 19 Nov 2026 14:03:57 +0300 | "Grafana SMART-HOME" <<адрес заказчика>> | [FIRING:1] TEMP-01 no readings Office (ctrl-01 office-controller
+Thu, 19 Nov 2026 14:52:24 +0300 | "Grafana SMART-HOME" <<адрес заказчика>> | [FIRING:1] TEMP-01 no readings Office (ctrl-01 office-controller
+Thu, 19 Nov 2026 14:53:34 +0300 | "Grafana SMART-HOME" <<адрес заказчика>> | [RESOLVED] TEMP-01 no readings Office (ctrl-01 office-controller
+Thu, 19 Nov 2026 14:54:49 +0300 | "Grafana SMART-HOME" <<адрес заказчика>> | [FIRING:1] HUM-01 no readings Office (ctrl-01 office-controller
+Thu, 19 Nov 2026 14:55:59 +0300 | "Grafana SMART-HOME" <<адрес заказчика>> | [FIRING:1] HUM-01 no readings Office (ctrl-01 office-controller
+Thu, 19 Nov 2026 14:56:21 +0300 | "Grafana SMART-HOME" <<адрес заказчика>> | [RESOLVED] HUM-01 no readings Office (ctrl-01 office-controller
+
