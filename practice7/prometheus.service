@@ -1,0 +1,30 @@
+# prometheus.service — эталон юнита. Выданный преподавателем файл может
+# отличаться путями; сверь ExecStart, User и WorkingDirectory с ним.
+# Кладётся в /etc/systemd/system/prometheus.service
+
+[Unit]
+Description=Prometheus monitoring server
+Documentation=https://prometheus.io/docs/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecStart=/usr/local/bin/prometheus \
+    --config.file=/etc/prometheus/prometheus.yml \
+    --storage.tsdb.path=/var/lib/prometheus \
+    --storage.tsdb.retention.time=15d \
+    --web.listen-address=:9090 \
+    --web.enable-lifecycle
+Restart=on-failure
+RestartSec=5
+
+# права на каталоги данных и конфигурации
+ReadWritePaths=/var/lib/prometheus
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

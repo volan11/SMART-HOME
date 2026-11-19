@@ -1,0 +1,1 @@
+[{"uid":"email-main","name":"Email","type":"email","settings":{"addresses":"student@example.com","singleEmail":false},"disableResolveMessage":false,"provenance":"file"},{"uid":"","name":"email receiver","type":"email","settings":{"addresses":"\u003cexample@email.com\u003e"},"disableResolveMessage":false}]

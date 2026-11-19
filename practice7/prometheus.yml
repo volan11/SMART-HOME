@@ -1,0 +1,24 @@
+# prometheus.yml — самостоятельно составленная конфигурация (отчёт №7)
+# Кладётся в /etc/prometheus/prometheus.yml
+# Проверка: promtool check config /etc/prometheus/prometheus.yml
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: mon-01
+
+scrape_configs:
+  - job_name: office-controller
+    # требования задания: интервал 5 с, таймаут меньше интервала
+    scrape_interval: 5s
+    scrape_timeout: 3s
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      # ВАЖНО: заменить 192.168.20.11 на IP адрес CTRL-01 (ip a на CTRL-01)
+      - targets:
+          - 192.168.20.20:8080
+        labels:
+          instance: ctrl-01
+          service: office-receiver

@@ -1,0 +1,17 @@
+sqlite> SELECT id,device_id,metric,value,unit FROM measurements ORDER BY id DESC LIMIT 5;
+(758, 'HUM-01', 'humidity', 55.0, '%')
+(757, 'TEMP-01', 'temperature', 34.0, 'C')
+(756, 'HUM-01', 'humidity', 52.8, '%')
+(755, 'TEMP-01', 'temperature', 27.5, 'C')
+(754, 'HUM-01', 'humidity', 67.7, '%')
+
+sqlite> SELECT id,device_id,state,mode,timestamp FROM actuator_events ORDER BY id DESC LIMIT 5;
+(374, 'FAN-01', 'ON', 'auto', 1795087027066)
+(373, 'FAN-01', 'OFF', 'auto', 1795087022065)
+(372, 'FAN-01', 'OFF', 'auto', 1795087017065)
+(371, 'FAN-01', 'ON', 'auto', 1795087012063)
+(370, 'FAN-01', 'OFF', 'auto', 1795087007061)
+
+sqlite> SELECT device_id,COUNT(*),MIN(value),MAX(value) FROM measurements GROUP BY device_id;
+('HUM-01', 384, 40.0, 70.0)
+('TEMP-01', 374, 25.1, 37.0)

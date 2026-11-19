@@ -1,0 +1,9 @@
+﻿# рабочая база и служебные файлы
+*.sqlite3
+*.db
+data/
+__pycache__/
+*.pyc
+# секреты
+*.env
+secrets*

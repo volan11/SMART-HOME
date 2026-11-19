@@ -1,0 +1,161 @@
+﻿apiVersion: 1
+groups:
+  - orgId: 1
+    name: office-sensors
+    folder: Office
+    interval: 10s
+    rules:
+      - uid: temp-no-readings
+        title: TEMP-01 no readings
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: prometheus-office
+            model:
+              editorMode: code
+              expr: office_sensor_age_seconds{sensor_id="TEMP-01"} and on(job,instance) (up{job="office-controller"} == 1)
+              instant: true
+              intervalMs: 1000
+              legendFormat: __auto
+              range: false
+              refId: A
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params:
+                      - 20
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - C
+                  reducer:
+                    params: []
+                    type: last
+                  type: query
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: A
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: C
+              type: threshold
+        noDataState: NoData
+        execErrState: Error
+        for: 0s
+        annotations:
+          summary: TEMP-01 РЅРµ РїСЂРёСЃС‹Р»Р°РµС‚ РїРѕРєР°Р·Р°РЅРёСЏ РґРѕР»СЊС€Рµ 20 СЃРµРєСѓРЅРґ
+        labels:
+          severity: warning
+          sensor: TEMP-01
+        isPaused: false
+      - uid: hum-no-readings
+        title: HUM-01 no readings
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: prometheus-office
+            model:
+              editorMode: code
+              expr: office_sensor_age_seconds{sensor_id="HUM-01"} and on(job,instance) (up{job="office-controller"} == 1)
+              instant: true
+              intervalMs: 1000
+              legendFormat: __auto
+              range: false
+              refId: A
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params:
+                      - 20
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - C
+                  reducer:
+                    params: []
+                    type: last
+                  type: query
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: A
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: C
+              type: threshold
+        noDataState: NoData
+        execErrState: Error
+        for: 0s
+        annotations:
+          summary: HUM-01 РЅРµ РїСЂРёСЃС‹Р»Р°РµС‚ РїРѕРєР°Р·Р°РЅРёСЏ РґРѕР»СЊС€Рµ 20 СЃРµРєСѓРЅРґ
+        labels:
+          severity: warning
+          sensor: HUM-01
+        isPaused: false
+      - uid: ctrl-down
+        title: CTRL-01 receiver is down
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: prometheus-office
+            model:
+              editorMode: code
+              expr: up{job="office-controller"}
+              instant: true
+              intervalMs: 1000
+              legendFormat: __auto
+              range: false
+              refId: A
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params:
+                      - 1
+                    type: lt
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - C
+                  reducer:
+                    params: []
+                    type: last
+                  type: query
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: A
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: C
+              type: threshold
+        noDataState: NoData
+        execErrState: Error
+        for: 0s
+        annotations:
+          summary: РџСЂРёС‘РјРЅРёРє CTRL-01 РЅРµРґРѕСЃС‚СѓРїРµРЅ (up = 0)
+        labels:
+          severity: critical
+          sensor: CTRL-01
+        isPaused: false
+

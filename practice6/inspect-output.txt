@@ -1,0 +1,12 @@
+measurements rows: 748
+{"id": 748, "source": "node_red", "device_id": "HUM-01", "metric": "humidity", "zone": "work_area", "timestamp": 1795087003063, "received_at": 1795087003069, "value": 50.5, "unit": "%", "labels": "{}"}
+{"id": 747, "source": "node_red", "device_id": "TEMP-01", "metric": "temperature", "zone": "server_room", "timestamp": 1795087002060, "received_at": 1795087002066, "value": 29.1, "unit": "C", "labels": "{}"}
+{"id": 746, "source": "node_red", "device_id": "HUM-01", "metric": "humidity", "zone": "work_area", "timestamp": 1795086998062, "received_at": 1795086998067, "value": 67.2, "unit": "%", "labels": "{}"}
+{"id": 745, "source": "node_red", "device_id": "TEMP-01", "metric": "temperature", "zone": "server_room", "timestamp": 1795086997059, "received_at": 1795086997065, "value": 32.1, "unit": "C", "labels": "{}"}
+{"id": 744, "source": "node_red", "device_id": "HUM-01", "metric": "humidity", "zone": "work_area", "timestamp": 1795086993061, "received_at": 1795086993068, "value": 66.0, "unit": "%", "labels": "{}"}
+actuator_events rows: 369
+{"id": 369, "source": "node_red", "device_id": "FAN-01", "zone": "server_room", "timestamp": 1795087002060, "received_at": 1795087002068, "state": "OFF", "mode": "auto"}
+{"id": 368, "source": "node_red", "device_id": "FAN-01", "zone": "server_room", "timestamp": 1795086997059, "received_at": 1795086997066, "state": "ON", "mode": "auto"}
+{"id": 367, "source": "node_red", "device_id": "FAN-01", "zone": "server_room", "timestamp": 1795086992057, "received_at": 1795086992065, "state": "ON", "mode": "auto"}
+{"id": 366, "source": "node_red", "device_id": "FAN-01", "zone": "server_room", "timestamp": 1795086987057, "received_at": 1795086987065, "state": "ON", "mode": "auto"}
+{"id": 365, "source": "node_red", "device_id": "FAN-01", "zone": "server_room", "timestamp": 1795086985688, "received_at": 1795086985697, "state": "ON", "mode": "auto"}

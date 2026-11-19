@@ -1,0 +1,17 @@
+# datasource.yml — провижининг источника данных Grafana.
+# Кладётся в /etc/grafana/provisioning/datasources/datasource.yml
+# UID обязательно prometheus-office — на него зашита выданная панель.
+
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    uid: prometheus-office
+    type: prometheus
+    access: proxy
+    url: http://127.0.0.1:9090
+    isDefault: true
+    editable: true
+    jsonData:
+      httpMethod: POST
+      timeInterval: 5s
